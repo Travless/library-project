@@ -13,11 +13,20 @@
         <div class="container" id="header-title-container">
             <div class="title" id="header-title">Header Placeholder</div>
         </div>
-        <div class="container" id="book-btn-container">
-            <button class="btn" id="add-book-btn">Add Book+</button>
-        </div>
     </header>
-    <div class="book-cards-container">
+    <div class="new-book-form">
+        <form id="form">
+            <label for="newAuthor">Author:</label>
+            <input type="text" name="newAuthor" id="newAuthor">
+            <label for="newTitle">Title:</label>
+            <input type="text" name="newTitle" id="newTitle">
+            <label for="newPages">Number of Pages:</label>
+            <input type="text" name="newPages" id="newPages">
+            <label for="newRead">Have you read this book?</label>
+            <input type="text" name="newRead" id="newRead">
+            <input type="submit" value="Submit" id="add-book-btn" name="add-book-btn">
+        </form>
     </div>
+    <div class="book-cards-container"></div>
 </body>
 </html>
