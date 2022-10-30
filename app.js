@@ -42,32 +42,13 @@ function cardGen(){
         bookCard.append(bookCardDel);
     
         bookCardsContainer.append(bookCard);
-}
 
-// function cardGen(){
-//     for (let i = 0; i < myLibrary.length; i++) {
-//         const bookCard = document.createElement('div');
-//         bookCard.classList.add('book-card');
-    
-//         const bookCardAuthor = document.createElement('div');
-//         bookCardAuthor.textContent = `Author: ${myLibrary[i].author}`;
-//         bookCard.append(bookCardAuthor);
-    
-//         const bookCardTitle = document.createElement('div');
-//         bookCardTitle.textContent = `Title: ${myLibrary[i].title}`;
-//         bookCard.append(bookCardTitle);
-    
-//         const bookCardPages = document.createElement('div');
-//         bookCardPages.textContent = `Number of Pages: ${myLibrary[i].pages}`;
-//         bookCard.append(bookCardPages);
-    
-//         const bookCardRead = document.createElement('div');
-//         bookCardRead.textContent = `Read: ${myLibrary[i].read}`;
-//         bookCard.append(bookCardRead);
-    
-//         bookCardsContainer.append(bookCard);
-//     }
-// };
+        for (let i = 0; i < myLibrary.length; i++) {
+            bookCard.setAttribute('data-index', i);
+        }
+};
+
+const bookDeleteButton = document.querySelector('.book-del-btn');
 
 form.addEventListener('submit', function(event){
     event.preventDefault()
@@ -82,8 +63,18 @@ form.addEventListener('submit', function(event){
     addBookToLibrary(newBook);
 
     cardGen();
-})
+});
 
-bookCardDel.addEventListener("click", function(event){
-    console.log(myLibrary.prototype.findIndex());
-})
+// bookCardDel.addEventListener("click", function(event){
+//     console.log(myLibrary.prototype.findIndex());
+// })
+
+function deleteBook() {
+    let index = this.getAttribute('data-index');
+    console.log(index);
+};
+
+bookDeleteButton.addEventListener('click', function(event){
+    deleteBook();
+});
+
