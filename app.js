@@ -40,6 +40,14 @@ function cardGen(){
         bookCardDel.classList.add('book-del-btn');
         bookCardDel.textContent = 'Delete';
         bookCard.append(bookCardDel);
+
+        bookCardDel.addEventListener('click', function(event){
+            let index = bookCard.getAttribute('data-index');
+            console.log(index);
+            myLibrary.splice(index, 1);
+            const currentCard = document.querySelector(`[data-index="${index}"]`);
+            currentCard.remove();
+        });
     
         bookCardsContainer.append(bookCard);
 
@@ -47,8 +55,6 @@ function cardGen(){
             bookCard.setAttribute('data-index', i);
         }
 };
-
-const bookDeleteButton = document.querySelector('.book-del-btn');
 
 form.addEventListener('submit', function(event){
     event.preventDefault()
@@ -63,18 +69,11 @@ form.addEventListener('submit', function(event){
     addBookToLibrary(newBook);
 
     cardGen();
+
 });
 
 // bookCardDel.addEventListener("click", function(event){
 //     console.log(myLibrary.prototype.findIndex());
 // })
 
-function deleteBook() {
-    let index = this.getAttribute('data-index');
-    console.log(index);
-};
-
-bookDeleteButton.addEventListener('click', function(event){
-    deleteBook();
-});
 
