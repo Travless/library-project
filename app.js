@@ -7,11 +7,19 @@ function Book(author, title, pages,read) {
     this.read = read;
 }
 
-Book.prototype.readStatus = function(){
+Book.prototype.createReadStatus = function(){
     if (document.getElementById('newRead').checked) {
         return  'Yes';
     } else {
         return 'No';
+    }
+}
+
+Book.prototype.changeReadStatus = function(){
+    if (currentStatus === 'Yes'){
+        currentStatus = 'No';
+    } else if ( currentStatus === 'No'){
+        currentStatus = 'Yes';
     }
 }
 
@@ -41,7 +49,7 @@ function cardGen(){
     bookCard.append(bookCardPages);
 
     const bookCardRead = document.createElement('div');
-    const currentStatus = newBook.readStatus();
+    let currentStatus = newBook.createReadStatus();
     bookCardRead.textContent = `Read: ${currentStatus}`;
     bookCard.append(bookCardRead);
 
@@ -61,6 +69,14 @@ function cardGen(){
         myLibrary.splice(index, 1);
         const currentCard = document.querySelector(`[data-index="${index}"]`);
         currentCard.remove();
+    });
+
+    bookCardEdit.addEventListener('click', function(event) {
+        if (bookCardRead.textContent === "Read: Yes"){
+            bookCardRead.textContent = "Read: No"
+        } else if (bookCardRead.textContent === "Read: No"){
+            bookCardRead.textContent = "Read: Yes";
+        }
     });
 
     bookCardsContainer.append(bookCard);
