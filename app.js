@@ -9,9 +9,9 @@ function Book(author, title, pages,read) {
 
 Book.prototype.readStatus = function(){
     if (document.getElementById('newRead').checked) {
-        return  'Read: Yes';
+        return  'Yes';
     } else {
-        return 'Read: No';
+        return 'No';
     }
 }
 
@@ -42,13 +42,18 @@ function cardGen(){
 
     const bookCardRead = document.createElement('div');
     const currentStatus = newBook.readStatus();
-    bookCardRead.textContent = `Read: ${newBook}`;
+    bookCardRead.textContent = `Read: ${currentStatus}`;
     bookCard.append(bookCardRead);
 
     const bookCardDel = document.createElement('button');
     bookCardDel.classList.add('book-del-btn');
     bookCardDel.textContent = 'Delete';
     bookCard.append(bookCardDel);
+
+    const bookCardEdit = document.createElement('button');
+    bookCardEdit.classList.add('book-edit-btn');
+    bookCardEdit.textContent = 'Edit';
+    bookCard.append(bookCardEdit);
 
     bookCardDel.addEventListener('click', function(event){
         let index = bookCard.getAttribute('data-index');
@@ -73,10 +78,11 @@ form.addEventListener('submit', function(event){
     const newPages = document.getElementById('newPages').value;
     const newRead = document.getElementById('newRead').value;
 
-    const newBook = new Book(newAuthor, newTitle, newPages, newRead);
+    newBook = new Book(newAuthor, newTitle, newPages, newRead);
 
     addBookToLibrary(newBook);
 
     cardGen();
 
+    return newBook;
 });
