@@ -75,11 +75,14 @@ body {
     width: 100px;
     height: 25px;
     font-family: 'label-font';
+    color: white;
 }
 
 #add-book-btn:hover{
     cursor: pointer;
     filter: drop-shadow(1px 1px 1px black);
+    color: black;
+    transition: 0.3s;
 }
 
 .book-cards-container {
@@ -119,6 +122,14 @@ button {
 button:hover {
     filter: drop-shadow(1px 1px 1px black);
     cursor: pointer;
+    color: black;
+    transition: 0.3s;
+}
+
+.book-del-btn,
+.book-edit-btn {
+    font-family: 'label-font';
+    color: white;
 }
 
 input[type=text] {

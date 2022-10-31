@@ -60,7 +60,7 @@ function cardGen(){
 
     const bookCardEdit = document.createElement('button');
     bookCardEdit.classList.add('book-edit-btn');
-    bookCardEdit.textContent = 'Edit';
+    bookCardEdit.textContent = 'Change Read Status';
     bookCard.append(bookCardEdit);
 
     bookCardDel.addEventListener('click', function(event){
