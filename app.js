@@ -9,11 +9,9 @@ function Book(author, title, pages,read) {
 
 Book.prototype.readStatus = function(){
     if (document.getElementById('newRead').checked) {
-        const currentStatus = 'Read: Yes';
-        return currentStatus;
+        return  'Read: Yes';
     } else {
-        const currentStatus = 'Read: No';
-        return currentStatus;
+        return 'Read: No';
     }
 }
 
@@ -43,7 +41,8 @@ function cardGen(){
     bookCard.append(bookCardPages);
 
     const bookCardRead = document.createElement('div');
-    bookCardRead.textContent = `Read: ${newRead.value}`;
+    const currentStatus = newBook.readStatus();
+    bookCardRead.textContent = `Read: ${newBook}`;
     bookCard.append(bookCardRead);
 
     const bookCardDel = document.createElement('button');
