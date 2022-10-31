@@ -9,25 +9,39 @@
     <script src="app.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        <div class="container" id="header-title-container">
-            <div class="title" id="header-title">Header Placeholder</div>
+    <div class="container" id="page-container">
+        <div class="container" id="header-container">
+            <header class="header">
+                <div class="container" id="header-title-container">
+                    <div class="title" id="header-title">library.</div>
+                </div>
+            </header>
+            <div class="new-book-form">
+                <form id="form">
+                    <div class="container" id="newAuthorContainer">
+                        <label for="newAuthor" id="newAuthorLabel">Author:</label>
+                        <input type="text" name="newAuthor" id="newAuthor">
+                    </div>
+                    <div class="container" id="newTitleContainer">
+                        <label for="newTitle" id="newTitleLabel">Title:</label>
+                        <input type="text" name="newTitle" id="newTitle">
+                    </div>
+                    <div class="container" id="newPagesContainer">
+                        <label for="newPages" id="newPagesLabel">Number of Pages:</label>
+                        <input type="text" name="newPages" id="newPages">
+                    </div>
+                    <div class="container" id="newReadContainer">
+                        <label for="newRead" id="newReadLabel">Have you read this book?</label>
+                        <input type="checkbox" name="newRead" id="newRead">
+                    </div>
+                    <!-- <input type="text" name="newRead" id="newRead"> -->
+                    <div class="container" id="submitContainer">
+                        <input type="submit" value="Submit" id="add-book-btn" name="add-book-btn">
+                    </div>
+                </form>
+            </div>
         </div>
-    </header>
-    <div class="new-book-form">
-        <form id="form">
-            <label for="newAuthor">Author:</label>
-            <input type="text" name="newAuthor" id="newAuthor">
-            <label for="newTitle">Title:</label>
-            <input type="text" name="newTitle" id="newTitle">
-            <label for="newPages">Number of Pages:</label>
-            <input type="text" name="newPages" id="newPages">
-            <label for="newRead">Have you read this book?</label>
-            <input type="checkbox" name="newRead" id="newRead">
-            <!-- <input type="text" name="newRead" id="newRead"> -->
-            <input type="submit" value="Submit" id="add-book-btn" name="add-book-btn">
-        </form>
+        <div class="book-cards-container"></div>
     </div>
-    <div class="book-cards-container"></div>
 </body>
 </html>
