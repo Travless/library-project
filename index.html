@@ -20,15 +20,15 @@
                 <form id="form">
                     <div class="container" id="newAuthorContainer">
                         <label for="newAuthor" id="newAuthorLabel">Author:</label>
-                        <input type="text" name="newAuthor" id="newAuthor">
+                        <input type="text" name="newAuthor" id="newAuthor" required minlength="2" />
                     </div>
                     <div class="container" id="newTitleContainer">
                         <label for="newTitle" id="newTitleLabel">Title:</label>
-                        <input type="text" name="newTitle" id="newTitle">
+                        <input type="text" name="newTitle" id="newTitle" required minlength="1" />
                     </div>
                     <div class="container" id="newPagesContainer">
                         <label for="newPages" id="newPagesLabel">Number of Pages:</label>
-                        <input type="text" name="newPages" id="newPages">
+                        <input type="number" name="newPages" id="newPages" required min="2" />
                     </div>
                     <div class="container" id="newReadContainer">
                         <label for="newRead" id="newReadLabel">Have you read this book?</label>

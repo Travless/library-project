@@ -1,5 +1,8 @@
 //Array that contains books being added
 let myLibrary = [];
+const author = document.getElementById('newAuthor');
+const title = document.getElementById('newTitle');
+const pages = document.getElementById('newPages');
 
 //Class that contains all functional aspects of Book object
 class Book {
@@ -92,9 +95,40 @@ const form = document.getElementById('form');
 //Container that houses all books within the page
 const bookCardsContainer = document.querySelector('.book-cards-container');
 
+
+author.addEventListener('input', e => {
+    e.preventDefault();
+
+    if (author.validity.tooShort) {
+        author.setCustomValidity('Please enter a valid name.')
+    } else {
+        author.setCustomValidity('');
+    }
+});
+
+title.addEventListener('input', e => {
+    e.preventDefault();
+
+    if (title.validity.tooShort) {
+        title.setCustomValidity('Please enter a valid title.');
+    } else {
+        title.setCustomValidity('');
+    }
+})
+
+pages.addEventListener('input', e => {
+    e.preventDefault();
+
+    if (pages.validity.rangeUnderflow) {
+        pages.setCustomValidity('Please enter a valid page count.');
+    } else {
+        pages.setCustomValidity('');
+    }
+})
+
 //Event listener that will trigger the addition of a new book to both the myLibrary array and all visual DOM elements reflected to the user
 form.addEventListener('submit', function(event){
-    event.preventDefault()
+    event.preventDefault();
 
     const newAuthor = document.getElementById('newAuthor').value;
     const newTitle = document.getElementById('newTitle').value;
@@ -109,3 +143,5 @@ form.addEventListener('submit', function(event){
 
     return newBook;
 });
+
+
